@@ -1,0 +1,11 @@
+﻿id,dataset,check,key,n_found,nature,proposed_action
+D1,activities,Exact duplicate rows,all columns,80,True duplicate,Drop the redundant copies
+D2,mechanisms,Exact duplicate rows,all columns,7,True duplicate,Drop the redundant copies
+D3,indications,Exact duplicate rows,all columns,1,True duplicate,Drop the redundant copy
+D4,molecules / targets,Exact duplicate rows,all columns,0,None found,-
+D5,molecules / targets,Duplicate primary IDs,molecule_chembl_id / target_chembl_id,0,None found,-
+D6,molecules,"Duplicate InChIKey, SMILES or name",inchi_key / smiles / name,0,None found,-
+D7,molecules,"Duplicate parent structures (salt + base, code + INN)",parent InChIKey,21,True duplicate (42 molecules in 21 groups),"Keep the largest fragment, deduplicate on the parent InChIKey, merge the records of both forms"
+D8,mechanisms,"Same (molecule, target) with conflicting action type",molecule + target,1,Conflict to review,Keep and flag; do not delete automatically
+D9,indications,"Same (molecule, EFO term) with different phase / MeSH",molecule + efo_term,3,Repetition by design,Keep the highest phase per disease when grouping
+D10,activities,"Several measurements per (molecule, target, type)",molecule + target + standard_type,2619,"By design (10641 records, 68% of the table)","Aggregate per (molecule, target, type), e.g. median pChEMBL"

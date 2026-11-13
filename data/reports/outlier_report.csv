@@ -1,0 +1,14 @@
+﻿dataset,variable,n,lower fence,upper fence,mild outliers,extreme (3xIQR),cause,assessment,decision
+molecules,mol_weight,345,221.02,731.42,13,6,"2 peptides; 8 counter-ion artifacts; 3 genuine heavy molecules (ridaforolimus, SF-1126, semapimod)","Mixed: 2 invalid for the project, 8 artifacts, 3 valid",Exclude the peptides; recompute MW on the parent structure; keep and flag the 3 genuine ones
+molecules,alogp,343,-0.13,7.89,2,1,RSM-932A (very lipophilic) and SF-1126 (very hydrophilic),Valid (unusual molecules),"Keep, flag"
+molecules,hbd,343,-0.75,5.25,2,2,"Semapimod (14 donors), SF-1126 (9)",Valid (unusual molecules),"Keep, flag"
+molecules,hba,343,0.5,12.5,3,0,"SF-1126, ridaforolimus, ARQ-736",Valid (unusual molecules),"Keep, flag"
+molecules,psa,343,35.38,155.84,10,3,"Very polar large molecules (semapimod, SF-1126) and 2 very apolar ones (RSM-932A, perhexiline)",Valid (unusual molecules),"Keep, flag"
+molecules,rtb,343,-0.5,11.5,5,2,"SF-1126 (22), semapimod (19), baraserib and others",Valid (flexible large molecules),"Keep, flag"
+molecules,aromatic_rings,343,1.5,5.5,14,1,"7 molecules with many rings (up to 8), 7 with almost none (macrocycles, non-aromatic)",Valid (unusual molecules),Keep
+molecules,first_approval,88,2004.0,2030.0,4,2,"Old approvals: perhexiline (1974), masoprocol (1992), trastuzumab (1998), imatinib (2001); the first two have no activity data",Valid years; perhexiline and masoprocol are suspicious members of the kinase family,Keep the year; review the two molecules' kinase annotation
+activities,pchembl_value,15655,3.2,10.43,19,0,"Very potent inhibitor-kinase pairs (omipalisib, deucravacitinib, inavolisib, bosutinib, crenolanib), mostly Ki / Kd",Valid,Keep
+activities,standard_value (raw nM),15655,-1802.0,3054.0,1825,1022,Log-distributed variable: the IQR rule on a linear scale flags 11.7% of the rows,Method artifact,Do not use the IQR rule on the raw concentration; use the log scale / pChEMBL
+derived,activity records per molecule,262,-74.62,140.38,30,17,30 molecules from kinome-wide profiling panels hold 59% of the records (sunitinib 918),Valid but a source of bias,"Keep; aggregate per (molecule, kinase, type); avoid per-record statistics"
+derived,indication records per molecule,359,-9.5,18.5,39,17,"Widely used drugs (dasatinib 88, trastuzumab 85, imatinib 82)",Valid,Keep; count distinct diseases rather than records
+molecules,SMILES length,345,28.0,92.0,20,7,"2 peptides, salt forms and macrocycles",Consistent with the MW outliers,Handled by the molecule selection and desalting

@@ -1,0 +1,13 @@
+﻿dataset,column,n_rows,n_missing,pct_missing,n_present,nature,proposed_handling
+molecules,first_approval,407,319,78.4,88,Structural: only approved drugs have an approval year,"Keep as is (empty = not approved); metadata, not a clustering feature"
+molecules,smiles,407,62,15.2,345,Structural: no structure for 51 Unknown + 11 Antibody molecules,Exclude molecules without structure (keep Small molecule only); do not impute
+molecules,inchi_key,407,62,15.2,345,Structural: same 62 molecules as smiles,Exclude with the molecules without structure
+molecules,mol_weight,407,62,15.2,345,Structural: same 62 molecules as smiles,Exclude; recompute on the parent structure for the kept molecules
+molecules,alogp,407,64,15.7,343,Structural: 62 molecules without structure + 2 peptides,Exclude those molecules; recompute descriptors with RDKit (ro5_violations is dropped)
+molecules,hbd,407,64,15.7,343,Structural: 62 molecules without structure + 2 peptides,Exclude those molecules; recompute descriptors with RDKit (ro5_violations is dropped)
+molecules,hba,407,64,15.7,343,Structural: 62 molecules without structure + 2 peptides,Exclude those molecules; recompute descriptors with RDKit (ro5_violations is dropped)
+molecules,psa,407,64,15.7,343,Structural: 62 molecules without structure + 2 peptides,Exclude those molecules; recompute descriptors with RDKit (ro5_violations is dropped)
+molecules,rtb,407,64,15.7,343,Structural: 62 molecules without structure + 2 peptides,Exclude those molecules; recompute descriptors with RDKit (ro5_violations is dropped)
+molecules,aromatic_rings,407,64,15.7,343,Structural: 62 molecules without structure + 2 peptides,Exclude those molecules; recompute descriptors with RDKit (ro5_violations is dropped)
+molecules,ro5_violations,407,64,15.7,343,Structural: 62 molecules without structure + 2 peptides,Exclude those molecules; recompute descriptors with RDKit (ro5_violations is dropped)
+activities,units,15655,675,4.3,14980,"Structural: measurement reported as a p-value (pKi, pIC50, pKd)",Do not use the raw units/value; use standard_value and pchembl_value

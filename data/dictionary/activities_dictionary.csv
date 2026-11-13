@@ -1,0 +1,12 @@
+﻿column,meaning,pandas_dtype,semantic_type,encoding,n_unique,n_missing,pct_missing,example,project_role,role_group
+assay_chembl_id,ID of the experiment (assay) that produced the measurement,object,Identifier,Text: 'CHEMBL' + number,6679,0,0.0,CHEMBL882727,Used to spot repeated records; not a feature,Quality control
+molecule_chembl_id,ID of the molecule tested,object,Identifier,Text: 'CHEMBL' + number,262,0,0.0,CHEMBL288441,Join key to molecules,Join key
+pchembl_value,"Potency on a log scale: -log10 of the molar IC50, Ki or Kd (higher = more potent)",float64,Numerical (continuous),Float between 4.0 and 10.8 (e.g. 8.9 is about 1.3 nM),577,0,0.0,8.89,Main potency measure for the biological interpretation of the clusters (after aggregation),Biological annotation
+standard_type,Type of measurement,object,Categorical (nominal),"Text with 3 values: IC50, Ki, Kd",3,0,0.0,IC50,Grouping key: the three types must not be mixed,Biological annotation
+standard_units,Unit of the standardized value,object,Constant,Text 'nM' in every row,1,0,0.0,nM,Dropped: no information,Drop
+standard_value,Measured value converted to nanomolar,float64,"Numerical (continuous, log-distributed)","Float in nM, from 0.02 to 100 000",2824,0,0.0,1.3,Backup potency measure; analyzed on a log scale,Biological annotation
+target_chembl_id,ID of the kinase tested,object,Identifier,Text: 'CHEMBL' + number,381,0,0.0,CHEMBL267,Join key to targets,Join key
+target_pref_name,Name of the kinase tested,object,Text label (categorical),Text: preferred protein name,381,0,0.0,Proto-oncogene tyrosine-prot,Readable label for the biological explorer; redundant with target_chembl_id,Label
+type,Measurement type as originally reported,object,Categorical (raw),"Text with 11 variants (e.g. Kd, IC50, pKi)",11,0,0.0,IC50,Not used: raw copy of standard_type,Drop
+units,Unit as originally reported,object,Categorical (raw),Text with 15 spellings; empty for measurements reported as p-values,15,675,4.3,nM,Not used: raw copy of standard_units,Drop
+value,Value as originally reported,float64,"Numerical (raw, mixed units)","Float in the original unit (nM, uM... or a p-value)",2965,0,0.0,1.3,Not used: raw copy of standard_value with mixed units,Drop

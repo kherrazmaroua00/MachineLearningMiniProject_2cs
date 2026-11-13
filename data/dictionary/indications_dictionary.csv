@@ -1,0 +1,5 @@
+﻿column,meaning,pandas_dtype,semantic_type,encoding,n_unique,n_missing,pct_missing,example,project_role,role_group
+efo_term,Disease or condition the molecule is used for (EFO vocabulary),object,"Categorical (nominal, many values)","Lower-case text, 495 distinct terms (e.g. 'neoplasm')",495,0,0.0,non-small cell lung carcinom,Disease annotation for the biological interpretation; to be grouped into broad classes,Biological annotation
+max_phase_for_ind,Furthest stage reached for this specific disease,float64,Ordinal,"Float: 0.5, 1, 2, 3 or 4 (4 = approved)",5,0,0.0,4.0,Separates approved indications (4) from investigational ones; defines a 'known indication',Biological annotation
+mesh_heading,The same disease in the MeSH vocabulary,object,"Categorical (nominal, many values)","Text, 362 distinct headings (e.g. 'Neoplasms')",362,0,0.0,"Carcinoma, Non-Small-Cell Lu",Second disease annotation; used to group diseases (oncology vs other),Biological annotation
+molecule_chembl_id,ID of the molecule,object,Identifier,Text: 'CHEMBL' + number,359,0,0.0,CHEMBL2105712,Join key to molecules,Join key

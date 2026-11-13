@@ -1,0 +1,5 @@
+﻿column,meaning,pandas_dtype,semantic_type,encoding,n_unique,n_missing,pct_missing,example,project_role,role_group
+organism,Species of the target,object,Constant,Text 'Homo sapiens' in every row,1,0,0.0,Homo sapiens,Dropped: no information,Drop
+pref_name,Name of the kinase,object,Text label,Text: preferred protein name,548,0,0.0,Tyrosine-protein kinase ABL1,Readable label for the biological explorer,Label
+target_chembl_id,Unique ChEMBL identifier of the kinase,object,Identifier,Text: 'CHEMBL' + number,548,0,0.0,CHEMBL1862,Join key,Join key
+target_type,Kind of target,object,Constant,Text 'SINGLE PROTEIN' in every row,1,0,0.0,SINGLE PROTEIN,Dropped: no information,Drop

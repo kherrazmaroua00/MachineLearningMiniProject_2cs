@@ -1,0 +1,18 @@
+﻿id,step,dataset,columns,issue,n_affected,severity,proposed_action
+Q1,3,molecules,"smiles, inchi_key, mol_weight, descriptors",Molecules without structure (51 Unknown + 11 Antibody) and 2 peptides,64,High,Keep molecule_type == 'Small molecule'; do not impute
+Q2,4,molecules,smiles / inchi_key,Duplicate parent structures hidden by salts and solvents (21 groups),42,High,"Keep the largest fragment, neutralize, deduplicate on the parent InChIKey; re-attach the records of the merged forms"
+Q3,5,molecules,mol_weight,ChEMBL molecular weight includes the counter-ion / solvent of the 49 salt forms (the other descriptors are computed on the parent),49,High,"Recompute the molecular weight on the parent structure (and, for consistency, all descriptors with RDKit)"
+Q4,4,activities,all columns,Exact duplicate rows,80,Medium,Drop the redundant copies
+Q5,4,activities,"molecule, target, standard_type","Several measurements per (molecule, kinase, type): 68% of the records",10641,Medium,"Aggregate per (molecule, kinase, type), e.g. median pChEMBL; never mix IC50, Ki and Kd"
+Q6,5,indications / mechanisms,molecule_chembl_id,"Annotation records on molecules that will not be clustered (indications 224, mechanisms 72)",296,Medium,Filter after the molecule selection
+Q7,5,activities,"units, value, type",Raw columns with 15 unit spellings and 11 type spellings (conversions are consistent),15,Medium,"Use standard_type, standard_value and pchembl_value only; drop the raw columns"
+Q8,4,mechanisms,all columns,Exact duplicate rows,7,Low,Drop the redundant copies
+Q9,4,mechanisms,molecule + target,"Same (molecule, target) recorded as ANTAGONIST and INHIBITOR",1,Low,Keep and flag for review
+Q10,4,indications,all columns,Exact duplicate row,1,Low,Drop the redundant copy
+Q11,5,mechanisms,action_type,"Non-inhibitor mechanisms (2 negative allosteric modulators, 1 antagonist)",3,Low,Keep but flag; check at interpretation time
+Q12,5,molecules,7 columns stored as float,"max_phase, first_approval, hbd, hba, rtb, aromatic_rings, ro5_violations hold whole numbers",7,Low,Cast to integer (or Int64) after excluding the molecules without structure
+Q13,5,molecules,ro5_violations,Inconsistent with the standard four-rule count,21,Low,Drop the column (derived from other descriptors)
+Q14,5,indications,efo_term,Spelling inconsistency (myelofibrosis / Myelofibrosis),1,Low,Normalize the case
+Q15,3,molecules,first_approval,78% missing: empty means not approved,319,Low,Keep as metadata; not a clustering feature
+Q16,3,activities,units,Empty for p-value measurements,675,Low,Ignore the raw column
+Q17,5,molecules,first_approval,Approved molecule without approval year (an antibody),1,Low,No action (not a small molecule)

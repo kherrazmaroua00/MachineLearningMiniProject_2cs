@@ -1,0 +1,6 @@
+﻿column,meaning,pandas_dtype,semantic_type,encoding,n_unique,n_missing,pct_missing,example,project_role,role_group
+action_type,How the molecule acts on the target,object,Categorical (nominal),"Text with 3 values: INHIBITOR, NEGATIVE ALLOSTERIC MODULATOR, ANTAGONIST",3,0,0.0,INHIBITOR,Annotation: do molecules of a cluster act the same way?,Biological annotation
+max_phase,Furthest clinical phase of the molecule (copy of the molecules table),int64,Ordinal,Integer 1-4 (int64),4,0,0.0,4,Not used: repeats molecules.max_phase,Drop
+mechanism_of_action,Short text describing the mechanism,object,"Text (categorical, repeated phrases)","Text, 102 distinct phrases (e.g. '... kinase inhibitor')",102,0,0.0,Receptor protein-tyrosine ki,Readable description in the biological explorer,Biological annotation
+molecule_chembl_id,ID of the molecule,object,Identifier,Text: 'CHEMBL' + number,407,0,0.0,CHEMBL1201585,Join key to molecules,Join key
+target_chembl_id,ID of the kinase the molecule acts on,object,Identifier,Text: 'CHEMBL' + number,99,0,0.0,CHEMBL1824,Join key to targets,Join key
