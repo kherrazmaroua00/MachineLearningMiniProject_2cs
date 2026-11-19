@@ -1,0 +1,47 @@
+{
+  "project": "DrugScope AI",
+  "records": [
+    {
+      "record_id": "7970944",
+      "files": [
+        "C:\\Users\\ibrah\\Downloads\\ML\\MINIPROJET\\downloads\\zenodo_7970944\\human_mouse_PKI_data.zip"
+      ]
+    },
+    {
+      "record_id": "8144176",
+      "files": [
+        "C:\\Users\\ibrah\\Downloads\\ML\\MINIPROJET\\downloads\\zenodo_8144176\\allosteric_PKIs_2023.tsv",
+        "C:\\Users\\ibrah\\Downloads\\ML\\MINIPROJET\\downloads\\zenodo_8144176\\readme.txt"
+      ]
+    }
+  ],
+  "downloaded_files": [
+    {
+      "path": "C:\\Users\\ibrah\\Downloads\\ML\\MINIPROJET\\downloads\\zenodo_7970944\\human_mouse_PKI_data.zip",
+      "size_bytes": 5637684,
+      "sha256": "a3b2d0a8bbb25f5d486a965b5297c38992281379717e834dcf3a05f5441cc160"
+    },
+    {
+      "path": "C:\\Users\\ibrah\\Downloads\\ML\\MINIPROJET\\downloads\\zenodo_8144176\\allosteric_PKIs_2023.tsv",
+      "size_bytes": 34644,
+      "sha256": "943f5718a7f7626a3ae3a69fd5d38f1781039000c7441989298d642632b40d53"
+    },
+    {
+      "path": "C:\\Users\\ibrah\\Downloads\\ML\\MINIPROJET\\downloads\\zenodo_8144176\\readme.txt",
+      "size_bytes": 534,
+      "sha256": "e948150d0dacd2758372efc498272d2ac755c12ae864b9c4252b361b50a0b8c4"
+    }
+  ],
+  "extracted_files": [
+    "C:\\Users\\ibrah\\Downloads\\ML\\MINIPROJET\\downloads\\zenodo_7970944\\extracted\\human_PKI_active.tsv",
+    "C:\\Users\\ibrah\\Downloads\\ML\\MINIPROJET\\downloads\\zenodo_7970944\\extracted\\human_PKI_inactive.tsv",
+    "C:\\Users\\ibrah\\Downloads\\ML\\MINIPROJET\\downloads\\zenodo_7970944\\extracted\\mouse_PKI_active.tsv",
+    "C:\\Users\\ibrah\\Downloads\\ML\\MINIPROJET\\downloads\\zenodo_7970944\\extracted\\mouse_PKI_inactive.tsv",
+    "C:\\Users\\ibrah\\Downloads\\ML\\MINIPROJET\\downloads\\zenodo_7970944\\extracted\\readme.txt"
+  ],
+  "notes": [
+    "This script does not modify molecules_raw.csv.",
+    "The Zenodo human/mouse PKI collection was assembled from ChEMBL and BindingDB.",
+    "Expect overlap with the current ChEMBL dataset; deduplicate by standardized structure."
+  ]
+}
